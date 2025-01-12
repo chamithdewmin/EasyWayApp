@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - EasyWay</title>
+    <link rel="stylesheet" href="/lib/Admin/Admin_WEB/CSS/grand.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+</head>
+ 
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">EasyWay Admin Panel</div>
+        <ul>
+            <li><a onclick="loadContent('home')">Home</a></li>
+            <li><a onclick="loadContent('registeredVehicles')">Registered Vehicles</a></li>
+            <li><a onclick="loadContent('paymentHistory')">Payment History</a></li>
+            <li><a onclick="loadContent('logout')">Logout</a></li>
+
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="dashboard">
+        <h1 id="pageTitle">Welcome to EasyWay Admin Dashboard</h1>
+        <div class="content" id="pageContent">
+            Select an option from the sidebar to view details here.
+        </div>
+    </div>
+
+    <!-- Link to external JavaScript file -->
+    <script src="/lib/Admin/Admin_WEB/JS/grand.js"></script>
+</body>
+</html>

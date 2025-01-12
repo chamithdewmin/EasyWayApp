@@ -1,0 +1,342 @@
+  /* General Styling */
+  body {
+    margin: 0;
+    display: flex;
+    font-family: Arial, sans-serif;
+    background-color: white;
+} 
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #34495e;
+    color: #fff;
+    padding: 20px;
+    position: fixed;
+    height: 100%;
+}
+
+.sidebar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    display: block;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.sidebar ul li a:hover {
+    background-color: #2c3e50;
+}
+
+/* Main Content */
+.dashboard {
+    margin-left: 270px;
+    padding: 20px;
+    width: calc(100% - 270px);
+}
+
+.dashboard h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.dashboard .content {
+    margin-top: 20px;
+}
+/* Styling for sidebar */
+.sidebar {
+    position: fixed;
+    width: 220px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    padding-top: 20px;
+}
+
+.sidebar .logo {
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+    border: 2px solid transparent;  /* Add border */
+    border-radius: 4px;             /* Optional for rounded corners */
+    transition: border 0.3s ease;    /* Smooth transition for border change */
+}
+
+.sidebar ul li a:hover {
+    background-color: #575757;
+    border: 2px solid #ffffff;       /* Border color on hover */
+}
+
+.sidebar ul li a.active {
+    background-color: #444444;
+    border: 2px solid #f1f1f1;       /* Border color for active button */
+}
+/* Styling for sidebar */
+.sidebar {
+    position: fixed;
+    width: 220px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    padding-top: 20px;
+}
+
+.sidebar .logo {
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+    border: 2px solid #575757; /* Permanent border for all buttons */
+    border-radius: 4px;         /* Optional for rounded corners */
+    transition: border 0.3s ease, background-color 0.3s ease; /* Smooth transition for border and background */
+}
+
+.sidebar ul li a:hover {
+    background-color: #575757;  /* Hover effect */
+    border-color: #ffffff;      /* Change border color on hover */
+}
+
+.sidebar ul li a.active {
+    background-color: #444444;  /* Background color for active button */
+    border-color: #f1f1f1;      /* Border color for active button */
+}
+ /* Basic styles for the dashboard and home page section */
+ .dashboard {
+    margin-left: 220px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+}
+/* Styling for title */
+#pageTitle {
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+/* Table styling */
+table {
+    width: 80%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f1f1f1;
+}
+
+/* Styling for sidebar */
+.sidebar {
+    position: fixed;
+    width: 220px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    padding-top: 20px;
+}
+
+.sidebar .logo {
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+    background-color: #575757;
+}
+
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: white;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+}
+
+.sidebar .logo {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: #34495e;
+}
+
+/* Main Content */
+.dashboard {
+    margin-left: 260px;
+    padding: 20px;
+}
+
+.home-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.weather-card, .date-time {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.weather-card h3, .date-time h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+#weather img {
+    width: 50px;
+    vertical-align: middle;
+}
+
+#weather p {
+    font-size: 1.1em;
+}
+
+/* Time and Date Styling */
+#dateTime p {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+#dateTime #time {
+    font-size: 2em;
+    color: #e74c3c;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Hover effects */
+.weather-card:hover, .date-time:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}

@@ -1,0 +1,71 @@
+name: firebase
+description: "A new Flutter project."
+publish_to: 'none' # This prevents the package from being accidentally published to pub.dev
+
+version: 1.0.0+1 # Version number and build number for your application
+
+environment:
+  sdk: ^3.5.4 # The Flutter SDK version that this project supports
+
+dependencies:
+  flutter:
+    sdk: flutter # The main Flutter SDK dependency
+
+  # The following adds the Cupertino Icons font to your application
+  cupertino_icons: ^1.0.8 # Use with the CupertinoIcons class for iOS-style icons
+
+  # Firebase dependencies
+  firebase_core: ^3.7.0
+  firebase_auth: ^5.3.2
+  provider: ^6.1.2
+  firebase_storage: ^12.3.5
+  firebase_database: ^11.1.5
+  cloud_firestore: ^5.4.5
+  # Additional dependencies for QR code, maps, location, and more
+  mobile_scanner: ^6.0.2
+  pretty_qr_code: ^3.3.0
+  flutter_svg: ^2.0.14
+  flutter_polyline_points: ^2.1.0
+  google_maps_flutter: ^2.1.1
+  location: ^5.0.0
+  permission_handler: ^10.0.0
+  url_launcher: ^6.1.8
+  google_sign_in: ^6.2.0
+  flutter_facebook_auth: ^6.0.0
+  geolocator: ^9.0.2
+  animated_splash_screen: ^1.3.0
+  
+dev_dependencies:
+  flutter_test:
+    sdk: flutter # Dependency for Flutter testing framework
+  flutter_lints: ^4.0.0 # A set of recommended lints to encourage good coding practices
+
+  # The following defines the launcher icon configuration using flutter_launcher_icons
+  flutter_launcher_icons: ^0.13.1 # Package for customizing your app's launcher icon
+
+flutter_icons:
+  android: true # Generates launcher icon for Android
+  ios: true # Generates launcher icon for iOS
+  image_path: "assets/images/logo.png" # Path to the image to be used as the launcher icon
+
+flutter:
+  uses-material-design: true # Enables Material Design icons in your application
+  assets:
+    - assets/images/man.png
+    - assets/images/google.png
+    - assets/images/food.png
+    - assets/images/foodcity.png
+    - assets/images/buger.jpg
+    - assets/images/juice.jpg
+    - assets/images/sandwitch.jpg    
+    - assets/images/chips.jpg    
+    - assets/images/coffe.jpg
+    - assets/images/water.jpg             
+    - assets/images/soda.png
+    - assets/images/milk.jpg         
+    - assets/images/tissue.png
+    - assets/images/cfoodcity.jpg         
+    - assets/images/keells.png  
+    - assets/images/arpico.jpg
+    - assets/images/logo.png
+    - assets/images/a.jpg
