@@ -47,7 +47,7 @@ class _NormalMapPageState extends State<NormalMapPage> {
           },
         ),
         title: const Text("Google Map"),
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.orange[900],
       ),
       body: googleMapUI(size),
     );

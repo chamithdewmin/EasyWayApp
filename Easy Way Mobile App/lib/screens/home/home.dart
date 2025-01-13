@@ -1,4 +1,5 @@
 import 'package:firebase/screens/QR%20code%20Scanner/scan_code_page.dart';
+import 'package:firebase/screens/home/Bottom%20app%20bar/HomeContent.dart';
 import 'package:firebase/screens/home/Navigation%20bar/my_profile_details.dart';
 import 'package:firebase/screens/home/Navigation%20bar/paymet_history.dart';
 import 'package:firebase/services/auth.dart';
@@ -34,9 +35,7 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    _userRef = FirebaseDatabase.instance
-        .ref()
-        .child('user_profile'); // Reference to the 'users' node
+    _userRef = FirebaseDatabase.instance.ref().child('user_profile'); // Reference to the 'users' node
   }
 
   Future<String> _getUserName() async {
@@ -64,6 +63,19 @@ class _HomeState extends State<Home> {
     }
   }
 
+  // Function to determine the greeting based on the time of day
+  String _getGreeting() {
+    final hour = DateTime.now().hour;
+
+    if (hour < 12) {
+      return "Good Morning";
+    } else if (hour < 17) {
+      return "Good Afternoon";
+    } else {
+      return "Good Evening";
+    }
+  }
+
   final List<Widget> _pages = [
     HomeContent(),
     WeatherPage(),
@@ -86,15 +98,43 @@ class _HomeState extends State<Home> {
             );
           },
         ),
-        title: const Text(
-          "Easy Way",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-            fontSize: 30,
-          ),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start, // Aligns the title to the left
+          children: const [
+            Text(
+              "Easy Way",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontSize: 30,
+              ),
+            ),
+          ],
         ),
         centerTitle: true,
+        actions: [
+          // Display greeting text at the top right corner
+          Padding(
+            padding: const EdgeInsets.only(right: 20.0),
+            child: FutureBuilder<String>(
+              future: _getUserName(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const CircularProgressIndicator();
+                } else if (snapshot.hasError) {
+                  return Text('Error: ${snapshot.error}');
+                } else if (!snapshot.hasData) {
+                  return const Text('No user data');
+                } else {
+                  return Text(
+                    '${_getGreeting()}, ${snapshot.data!}',
+                    style: const TextStyle(color: Colors.white, fontSize: 20,fontWeight: FontWeight.bold,),
+                  );
+                }
+              },
+            ),
+          ),
+        ],
       ),
       drawer: Drawer(
         child: FutureBuilder<String>(
@@ -102,8 +142,7 @@ class _HomeState extends State<Home> {
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(
-                  child:
-                      CircularProgressIndicator()); // Show loading indicator while fetching
+                  child: CircularProgressIndicator()); // Show loading indicator while fetching
             } else if (snapshot.hasError) {
               return Center(child: Text('Error: ${snapshot.error}'));
             } else if (!snapshot.hasData) {
@@ -226,136 +265,6 @@ class _HomeState extends State<Home> {
           BottomNavigationBarItem(
               icon: Icon(Icons.notifications), label: 'Notifications'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-        ],
-      ),
-    );
-  }
-}
-
-// ignore: use_key_in_widget_constructors
-class HomeContent extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          const Padding(
-            padding: EdgeInsets.only(left: 10),
-            child: Text(
-              "",
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
-          const SizedBox(height: 20),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.grey[200],
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25)),
-              padding:
-                  const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-            ),
-            onPressed: () async {
-              DatabaseReference databaseRef =
-                  FirebaseDatabase.instance.ref('vehicle_registration');
-              User? user = FirebaseAuth.instance.currentUser;
-      
-              DataSnapshot snapshot =
-                  await databaseRef.child(user!.uid).get();
-      
-              if (!snapshot.exists) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('No vehicle registered. Please register your vehicle first.')),
-                );
-                return;
-              }
-      
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => HighwayEntranceCodeScanScreen(
-                      qrCode: '',
-                    ),
-                  ));
-            },
-            child: const Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text("START RIDE",
-                    style: TextStyle(color: Colors.black, fontSize: 20)),
-                SizedBox(width: 10),
-                Icon(Icons.directions_car, color: Colors.black),
-              ],
-            ),
-          ),
-          const SizedBox(height: 65),
-          GridView.count(
-            crossAxisCount: 2,
-            shrinkWrap: true,
-            mainAxisSpacing: 20,
-            crossAxisSpacing: 20,
-            children: [
-              _buildGridButton(
-                  "Vehicle Registrations", Icons.directions_car, context),
-              _buildGridButton("Ordering", Icons.food_bank_sharp, context),
-              _buildGridButton("Road Map", Icons.map, context),
-              _buildGridButton("Services", Icons.phone_in_talk, context),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildGridButton(String title, IconData icon, BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.grey[200],
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        padding: const EdgeInsets.all(20),
-      ),
-      onPressed: () {
-        if (title == "Vehicle Registrations") {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => VehicleRegisterPage()),
-          );
-        } else if (title == "Ordering") {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ShoppingCenterPage(),
-            ),
-          );
-        } else if (title == "Road Map") {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const NormalMapPage(
-                qrCode: '',
-              ),
-            ),
-          );
-        } else if (title == "Services") {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ServicePage(),
-            ),
-          );
-        }
-      },
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icon, color: Colors.black, size: 40),
-          const SizedBox(height: 10),
-          Text(title, style: const TextStyle(color: Colors.black)),
         ],
       ),
     );

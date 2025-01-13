@@ -25,14 +25,6 @@ class NotificationsPage extends StatelessWidget {
         children: [
           const Padding(
             padding: EdgeInsets.only(left: 10),
-            child: Text(
-              "NOTIFICATIONS",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
           ),
           const SizedBox(height: 20),
           Expanded(
@@ -41,7 +33,9 @@ class NotificationsPage extends StatelessWidget {
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(
-                    child: CircularProgressIndicator(),
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.orange), // Set the color to orange
+                    ),
                   );
                 } else if (snapshot.hasError) {
                   return Center(

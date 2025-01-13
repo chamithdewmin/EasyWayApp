@@ -27,7 +27,7 @@ class ShoppingCenterPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Shopping Centers"),
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.orange[900],
       ),
       body: ListView.builder(
         itemCount: shoppingCenters.length,

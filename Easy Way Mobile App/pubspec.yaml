@@ -51,21 +51,4 @@ flutter_icons:
 flutter:
   uses-material-design: true # Enables Material Design icons in your application
   assets:
-    - assets/images/man.png
-    - assets/images/google.png
-    - assets/images/food.png
-    - assets/images/foodcity.png
-    - assets/images/buger.jpg
-    - assets/images/juice.jpg
-    - assets/images/sandwitch.jpg    
-    - assets/images/chips.jpg    
-    - assets/images/coffe.jpg
-    - assets/images/water.jpg             
-    - assets/images/soda.png
-    - assets/images/milk.jpg         
-    - assets/images/tissue.png
-    - assets/images/cfoodcity.jpg         
-    - assets/images/keells.png  
-    - assets/images/arpico.jpg
-    - assets/images/logo.png
-    - assets/images/a.jpg
+  - assets/images/

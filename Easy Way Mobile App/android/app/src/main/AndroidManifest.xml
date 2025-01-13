@@ -49,6 +49,6 @@
         <!-- Meta-data for Google API Key -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_api_key" />
+            android:value="AIzaSyArRJ0YVxdeok5_UIms-9WhhJ6rFK9wjRk" />
     </application>
 </manifest>

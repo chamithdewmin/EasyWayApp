@@ -15,7 +15,7 @@ class _WeatherPageState extends State<WeatherPage> {
   String _iconUrl = "";
   bool _isLoading = true;
 
-  final String _apiKey = ""; // Your API Key
+  final String _apiKey = "47755a072c8ab43e76f2f01737b82330"; // Your API Key
   final TextEditingController _searchController = TextEditingController();
 
   @override
